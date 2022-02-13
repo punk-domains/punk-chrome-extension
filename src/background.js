@@ -9,8 +9,8 @@ console.log("block number: " + blockNumber);
 
 chrome.webNavigation.onBeforeNavigate.addListener(function(data) {
   
-  if (data.url.includes("q=tende.panda")) {
-    console.log("PANDA!!!")
+  if (data.url.includes("q=tempe.punk")) {
+    console.log("PUNK!!!")
     chrome.tabs.update(data.tabId, { url: "https://www.ethereum.org" })
   }
     

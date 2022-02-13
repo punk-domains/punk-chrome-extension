@@ -1,9 +1,9 @@
 <template>
   <div class="app">
-    <h1>Web3Panda Chrome Extension</h1>
+    <h1>Punk Domains Chrome Extension</h1>
 
     <template v-if="domIsReady">
-      <p>Hello Panda! :)</p>
+      <p>Hello Punk! :)</p>
       <p>Click here to disable the extension (different logo color).</p>
     </template>
   </div>

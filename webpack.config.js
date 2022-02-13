@@ -19,10 +19,7 @@ const plugins = [
   }),
   new CopyPlugin({
     patterns: [
-      { from: "src/assets/img/logo16.png" },
-      { from: "src/assets/img/logo48.png" },
-      { from: "src/assets/img/logo128.png" },
-      { from: "src/assets/img/panda500.png" },
+      { from: "src/assets/img/logo.png" },
     ],
   }),
   new MiniCssExtractPlugin(),

@@ -1,8 +1,8 @@
 module.exports = {
   
   manifest: {
-    name: 'Web3Panda Domains',
-    description: 'This extension allows you to access Web3 domains such as .panda, .web3, etc.',
+    name: 'Punk Domains',
+    description: 'This extension allows you to access Web3 domains such as .web3, .ape, .wagmi, etc.',
     version: '1.0',
     manifest_version: 3,
     background: {
@@ -13,9 +13,7 @@ module.exports = {
       'tabs'
     ],
     icons: { 
-      16: "panda500.png",
-      48: "panda500.png",
-      128: "panda500.png" 
+      100: "logo.png"
     },
     action: {
       default_popup: 'index.html'

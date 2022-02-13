@@ -1,4 +1,4 @@
-# Web3Panda Chrome Extension
+# Punk Domains Chrome Extension
 
 Quickstart:
 
