@@ -13,9 +13,9 @@ module.exports = {
       'tabs'
     ],
     icons: { 
-      16: "logo16.png",
-      48: "logo48.png",
-      128: "logo128.png" 
+      16: "panda500.png",
+      48: "panda500.png",
+      128: "panda500.png" 
     },
     action: {
       default_popup: 'index.html'

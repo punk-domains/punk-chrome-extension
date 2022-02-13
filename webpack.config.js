@@ -22,6 +22,7 @@ const plugins = [
       { from: "src/assets/img/logo16.png" },
       { from: "src/assets/img/logo48.png" },
       { from: "src/assets/img/logo128.png" },
+      { from: "src/assets/img/panda500.png" },
     ],
   }),
   new MiniCssExtractPlugin(),
