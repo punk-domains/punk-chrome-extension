@@ -3,5 +3,3 @@ export const domIsReady = async () => {
     window.addEventListener('DOMContentLoaded', () => resolve({}))
   })
 }
-
-
