@@ -9,8 +9,9 @@ module.exports = {
       service_worker: 'background.js'
     },
     permissions: [
-      'webNavigation',
-      'tabs'
+      "storage",
+      'tabs',
+      'webNavigation'
     ],
     icons: { 
       100: "logo.png"
