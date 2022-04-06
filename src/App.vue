@@ -17,6 +17,7 @@
         <div class="mb-4 mt-4">
           <input 
             v-model="domainEntry"
+            v-on:keyup.enter="goToUrl"
             type="text" 
             class="form-control text-center" 
             placeholder="Enter domain name"
@@ -24,8 +25,15 @@
           <button
             @click="goToUrl" 
             class="btn btn-primary mt-3"
-          >Go to URL</button>
+          >
+          <span v-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Go to URL
+          </button>
         </div>
+
+        <p v-if="errorMessage">
+          {{errorMessage}}
+        </p>
 
         <hr />
 
@@ -52,12 +60,15 @@
 <script>
 import { domIsReady } from './utils/chrome';
 import { getTlds } from "./utils/tlds";
+import { getDomainDataUrl } from "./utils/punk";
 
 export default {
   data() {
     return {
       domainEntry: null,
       domIsReady: false,
+      errorMessage: null,
+      loading: false,
       status: "Enabled",
       tabId: ''
     }
@@ -68,7 +79,11 @@ export default {
 
     const component = this;
     chrome.storage.local.get(['punkExtensionEnabled'], function(result) {
-      component.status = result.punkExtensionEnabled;
+      if (result.punkExtensionEnabled === "Enabled" || result.punkExtensionEnabled === "Disabled") {
+        component.status = result.punkExtensionEnabled;
+      } else {
+        chrome.storage.local.set({"punkExtensionEnabled": component.status}, function() {});
+      }
     });
   },
 
@@ -91,6 +106,9 @@ export default {
     },
 
     goToUrl() {
+      this.errorMessage = null;
+      this.loading = true;
+
       if (this.domainEntry && this.domainEntry.includes(".") && !this.domainEntry.includes(" ")) {
         const queryParts = this.domainEntry.split(".");
 
@@ -99,24 +117,29 @@ export default {
           const tld = "." + queryParts[1];
 
           if (Object.keys(getTlds()).includes(tld)) {
-            
-            let baseUrl = "https://punk.domains";
-
-            if (tld === ".klima") {
-              baseUrl = "https://www.kns.earth";
-            }
-
             const tldData = getTlds()[tld];
-            const fullUrl = baseUrl + "/#/domain/"+tldData.chainId+"/"+queryParts[1]+"/"+domainName;
 
-            window.open(fullUrl, '_blank').focus();
-
-            // TODO: check if URL is in domain data and redirect there if it is
-            //const provider = getFallbackProvider(tldData.chainId);
+            getDomainDataUrl(domainName, queryParts[1], tldData.address, tldData.chainId).then(function(result) {
+              if (result && result.startsWith("http")) {
+                window.open(result, '_blank').focus();
+                this.loading = false;
+              } else {
+                this.errorMessage = "Not HTTP URL.";
+                this.loading = false;
+              }
+            });
+          } else {
+            this.errorMessage = "This TLD does not exist in Punk Domains.";
+            this.loading = false;
           }
+        } else {
+          this.errorMessage = "Incorrect domain.";
+          this.loading = false;
         }
+      } else {
+        this.errorMessage = "Incorrect entry.";
+        this.loading = false;
       }
-      
     }
   },
 }

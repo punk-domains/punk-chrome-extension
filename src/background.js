@@ -1,5 +1,4 @@
-//import { ethers } from "ethers";
-//import { getFallbackProvider } from "./utils/network";
+import { getDomainDataUrl } from "./utils/punk";
 import { getTlds } from "./utils/tlds";
 
 chrome.webNavigation.onBeforeNavigate.addListener(function(data) {
@@ -14,21 +13,17 @@ chrome.webNavigation.onBeforeNavigate.addListener(function(data) {
         const queryParts = query.split(".");
 
         if (queryParts.length === 2) {
+          const domainName = queryParts[0];
           const tld = "." + queryParts[1];
 
           if (Object.keys(getTlds()).includes(tld)) {
             const tldData = getTlds()[tld];
-            
-            let baseUrl = "https://punk.domains";
 
-            if (tld === ".klima") {
-              baseUrl = "https://www.kns.earth";
-            }
-
-            chrome.tabs.update(data.tabId, { url: baseUrl+"/#/domain/"+tldData.chainId+"/"+queryParts[1]+"/"+queryParts[0] })
-
-            // TODO: check if URL is in domain data and redirect there if it is
-            //const provider = getFallbackProvider(tldData.chainId);
+            getDomainDataUrl(domainName, queryParts[1], tldData.address, tldData.chainId).then(function(result) {
+              if (result && result.startsWith("http")) {
+                chrome.tabs.update(data.tabId, { url: result });
+              }
+            });
           }
         }
       }

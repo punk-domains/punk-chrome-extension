@@ -52,6 +52,10 @@ export const getTlds = () => {
       "address": "0xC4999A3e91ef87c9EC5d8186D02B77F9A62458b9",
       "chainId": 137
     },
+    ".klima": {
+      "address": "0x0",
+      "chainId": 137
+    },
   
   
     ".arbi": {
