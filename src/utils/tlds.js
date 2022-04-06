@@ -53,7 +53,7 @@ export const getTlds = () => {
       "chainId": 137
     },
     ".klima": {
-      "address": "0x0",
+      "address": "0xe8b97542A433e7eCc7bB791872af04DF02A1a6E4",
       "chainId": 137
     },
   
