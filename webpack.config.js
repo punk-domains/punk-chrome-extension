@@ -20,6 +20,7 @@ const plugins = [
   new CopyPlugin({
     patterns: [
       { from: "src/assets/img/logo.png" },
+      { from: "src/assets/img/logo-white512.png" },
     ],
   }),
   new MiniCssExtractPlugin(),
@@ -36,7 +37,7 @@ const rules = [
     loader: 'json-loader'
   },
   {
-    test: /\.scss$/i,
+    test: /\.css$/i,
     use: [
       MiniCssExtractPlugin.loader,
       "css-loader",
