@@ -10,7 +10,6 @@ module.exports = {
     },
     permissions: [
       "storage",
-      'tabs',
       'webNavigation'
     ],
     icons: { 
