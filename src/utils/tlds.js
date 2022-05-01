@@ -16,6 +16,10 @@ export const getTlds = () => {
       "address": "0x9A7657d1593032C75d70950707870c3cC7ca45DC",
       "chainId": 10
     },
+    ".op": {
+      "address": "0xC16aCAdf99E4540E6f4E6Da816fd6D2A2C6E1d4F",
+      "chainId": 10
+    },
   
   
     ".gnosis": {
@@ -64,6 +68,10 @@ export const getTlds = () => {
     },
     ".arbitrum": {
       "address": "0x337EB5061943ECd247649d58D35Dbab0b40D67E0",
+      "chainId": 42161
+    },
+    ".smol": {
+      "address": "0xE0d972817e94c5FF9BDc49a63d8927A0bA833E4f",
       "chainId": 42161
     }
   }  

@@ -7,6 +7,8 @@ export const getDomainDataUrl = async (domainName, tld, tldAddress, chainId, mod
 
   if (tld === "klima") {
     baseUrl = "https://www.kns.earth";
+  } else if (tld === "smol") {
+    baseUrl = "https://smol.domains";
   }
 
   const punkUrl = baseUrl + "/#/domain/"+chainId+"/"+tld+"/"+domainName;
