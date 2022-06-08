@@ -2,7 +2,7 @@
   <div class="app">
     <div class="container text-center">
       <template v-if="domIsReady">
-        <img height="30px" class="mb-2" src="logo-white512.png" />
+        <img height="50px" class="mb-2" src="logo-white512.png" />
 
         <h1>
           Punk Domains
