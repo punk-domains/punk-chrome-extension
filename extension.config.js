@@ -2,7 +2,7 @@ module.exports = {
   
   manifest: {
     name: 'Punk Domains',
-    description: 'This extension allows you to access Web3 domains such as .web3, .ape, .wagmi, ".op", ".smol", etc.',
+    description: 'This extension allows you to access Web3 domains such as .ape, .wagmi, ".l2", .op", ".smol", etc.',
     version: '1.1',
     manifest_version: 3,
     background: {
