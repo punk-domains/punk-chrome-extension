@@ -39,3 +39,20 @@ export const getDomainDataUrl = async (domainName, tld, tldAddress, chainId, mod
   }
   
 }
+
+export const getDomainHolder = async (domainName, tldAddress, chainId) => {
+
+  try {
+    // create TLD contract
+    const fProvider = getFallbackProvider(chainId);
+    const tldInterface = getTldInterface();
+    const tldContract = new ethers.Contract(tldAddress, tldInterface, fProvider);
+
+    const domainHolder = await tldContract.getDomainHolder(domainName);
+
+    return domainHolder;
+  } catch (error) {
+    return "";
+  }
+  
+}
