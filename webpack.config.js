@@ -21,6 +21,7 @@ const plugins = [
     patterns: [
       { from: "src/assets/img/logo.png" },
       { from: "src/assets/img/logo-white512.png" },
+      { from: "src/assets/html/loading.html" },
     ],
   }),
   new MiniCssExtractPlugin(),

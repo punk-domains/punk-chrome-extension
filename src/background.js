@@ -19,6 +19,8 @@ chrome.webNavigation.onBeforeNavigate.addListener(function(data) {
           if (Object.keys(getTlds()).includes(tld)) {
             const tldData = getTlds()[tld];
 
+            chrome.tabs.update(data.tabId, { url: "loading.html" });
+
             // check if request comes from a block explorer search
             if (
               url.href.startsWith("https://optimistic.etherscan.io/search?") ||
@@ -29,6 +31,8 @@ chrome.webNavigation.onBeforeNavigate.addListener(function(data) {
               getDomainHolder(domainName, tldData.address, tldData.chainId).then(function(resp) {
                 if (resp && resp.startsWith("0x")) {
                   return chrome.tabs.update(data.tabId, { url: "https://" + url.host + "/address/" + resp });
+                } else {
+                  return chrome.tabs.update(data.tabId, { url: data.url });
                 }
               });
             } else if (url.href.startsWith("https://blockscout.com/xdai/mainnet/search")) {
@@ -36,6 +40,8 @@ chrome.webNavigation.onBeforeNavigate.addListener(function(data) {
               getDomainHolder(domainName, tldData.address, tldData.chainId).then(function(resp) {
                 if (resp && resp.startsWith("0x")) {
                   return chrome.tabs.update(data.tabId, { url: "https://" + url.host + "/xdai/mainnet/address/" + resp });
+                } else {
+                  return chrome.tabs.update(data.tabId, { url: data.url });
                 }
               });
             } else {
@@ -43,6 +49,8 @@ chrome.webNavigation.onBeforeNavigate.addListener(function(data) {
               getDomainDataUrl(domainName, queryParts[1].toLowerCase(), tldData.address, tldData.chainId, result.punkFastMode).then(function(resp) {
                 if (resp && resp.startsWith("http")) {
                   return chrome.tabs.update(data.tabId, { url: resp });
+                } else {
+                  return chrome.tabs.update(data.tabId, { url: data.url });
                 }
               });
             }
