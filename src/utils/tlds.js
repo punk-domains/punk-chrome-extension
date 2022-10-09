@@ -1,5 +1,10 @@
 export const getTlds = () => {
   return {
+    ".wildbunch": {
+      "address": "0xaa9E5Ade68C9C3Ea967Dc5dde731fd1f797152Cb",
+      "chainId": 1
+    },
+    
     ".wagmi": {
       "address": "0xC3E8922657686EC63eaaa9FC1Fe06826802e7e0f",
       "chainId": 10
@@ -20,7 +25,20 @@ export const getTlds = () => {
       "address": "0xC16aCAdf99E4540E6f4E6Da816fd6D2A2C6E1d4F",
       "chainId": 10
     },
-  
+
+    ".sgb": {
+      "address": "0xBDACF94dDCAB51c39c2dD50BffEe60Bb8021949a",
+      "chainId": 19
+    },
+
+    ".huwa": {
+      "address": "0xeFBE0b46649B7A0F1e1D49CCa98aD9CF6bcFB096",
+      "chainId": 56
+    },
+    ".safu": {
+      "address": "0xBDACF94dDCAB51c39c2dD50BffEe60Bb8021949a",
+      "chainId": 56
+    },  
   
     ".gnosis": {
       "address": "0xC3E8922657686EC63eaaa9FC1Fe06826802e7e0f",
@@ -35,11 +53,6 @@ export const getTlds = () => {
       "chainId": 100
     },
   
-  
-      ".polygon": {
-      "address": "0xa450bc33d0940d25fB0961c592fb440Fa63ABE03",
-      "chainId": 137
-    },
     ".ape": {
       "address": "0x794a8390D94E32b086908D2bA9D66300aA163C62",
       "chainId": 137
@@ -64,6 +77,14 @@ export const getTlds = () => {
     },
     ".arbitrum": {
       "address": "0x337EB5061943ECd247649d58D35Dbab0b40D67E0",
+      "chainId": 42161
+    },
+    ".ppl": {
+      "address": "0xbC9d19e5f97a572f428F7292DBf3dc182Cc05C82",
+      "chainId": 42161
+    },
+    ".punkangel": {
+      "address": "0xcC66213645474a7B61BAf95330D01e50789eaF4b",
       "chainId": 42161
     },
     ".smol": {

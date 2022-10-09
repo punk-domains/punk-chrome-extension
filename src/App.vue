@@ -75,8 +75,7 @@
 
 <script>
 import { domIsReady } from './utils/chrome';
-import { getTlds } from "./utils/tlds";
-import { getDomainDataUrl } from "./utils/punk";
+import { getDomainDataUrl } from "./utils/resolvers";
 
 export default {
   data() {
@@ -151,22 +150,15 @@ export default {
           const domainName = queryParts[0].toLowerCase();
           const tld = "." + queryParts[1].toLowerCase();
 
-          if (Object.keys(getTlds()).includes(tld)) {
-            const tldData = getTlds()[tld];
-
-            getDomainDataUrl(domainName, queryParts[1].toLowerCase(), tldData.address, tldData.chainId, this.mode).then(function(result) {
-              if (result && result.startsWith("http")) {
-                window.open(result, '_blank').focus();
-                this.loading = false;
-              } else {
-                this.errorMessage = "Not HTTP URL.";
-                this.loading = false;
-              }
-            });
-          } else {
-            this.errorMessage = "This TLD does not exist in Punk Domains.";
-            this.loading = false;
-          }
+          getDomainDataUrl(domainName, tld, this.mode).then(function(result) {
+            if (result && result.startsWith("http")) {
+              window.open(result, '_blank').focus();
+              this.loading = false;
+            } else {
+              this.errorMessage = "Not HTTP URL.";
+              this.loading = false;
+            }
+          });
         } else {
           this.errorMessage = "Incorrect domain.";
           this.loading = false;
