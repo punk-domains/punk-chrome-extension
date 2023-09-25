@@ -9,7 +9,15 @@ export const getDomainDataUrl = async (domainName, tld, tldAddress, chainId, mod
     baseUrl = "https://www.kns.earth";
   } else if (tld === "smol") {
     baseUrl = "https://smol.domains";
+  // +
+  } else if (tld === "sgb") {
+    baseUrl = "https://sgb.chat";
+  } else if (tld === "flr") {
+    baseUrl = "https://flr.chat";
+  } else if (tld === "basebook") {
+    baseUrl = "https://basebook.xyz";
   }
+  
 
   const punkUrl = baseUrl + "/#/domain/"+chainId+"/"+tld+"/"+domainName;
 
