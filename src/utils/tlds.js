@@ -69,6 +69,22 @@ export const getTlds = () => {
     ".smol": {
       "address": "0xE0d972817e94c5FF9BDc49a63d8927A0bA833E4f",
       "chainId": 42161
-    }
+    },
+
+    // +
+    ".sgb": {
+      "address": "0xBDACF94dDCAB51c39c2dD50BffEe60Bb8021949a",
+      "chainId": 19
+    },
+
+    ".flr": {
+      "address": "0xBDACF94dDCAB51c39c2dD50BffEe60Bb8021949a",
+      "chainId": 14
+    },
+
+    ".basebook": {
+      "address": "0x4087fb91A1fBdef05761C02714335D232a2Bf3a1",
+      "chainId": 8453
+    },
   }  
 }

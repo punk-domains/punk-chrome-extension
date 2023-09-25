@@ -24,6 +24,22 @@ export const getFallbackProvider = (networkId) => {
     urls = [
       "https://arb1.arbitrum.io/rpc"
     ];
+  // +
+  } else if (networkId === 19) {
+    // Songbird Canary-Network
+    urls = [
+      "https://rpc.ftso.au/songbird"
+    ];
+  } else if (networkId === 14) {
+    // Flare Mainnet
+    urls = [
+      "https://flare-api.flare.network/ext/C/rpc"
+    ];
+  } else if (networkId === 8453) {
+    // Flare Mainnet
+    urls = [
+      "https://rpc.notadegen.com/base"
+    ];
   }
 
   if (urls) {
